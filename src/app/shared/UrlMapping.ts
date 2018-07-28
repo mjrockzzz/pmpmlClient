@@ -1,6 +1,6 @@
 export class UrlMapping {
 
-    public static BaseUrl = "http://localhost:8000/";
+    public static BaseUrl = "http://pmpmlserver.herokuapp.com/";
 
     public static GetRouteDetailsUrl(route) {
         return "getRouteDetails?route="+route.trim();
