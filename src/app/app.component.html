@@ -126,7 +126,7 @@ aria-labelledby="routeDetailsModal">
 					[iconUrl]="getIcon(marker)">
 						<agm-info-window>
 							{{marker.stop_name}}<br/>
-							<a class="modal-link text-blue" (click)="setStopFromMap(marker.stop_name)">Select</a>
+							<a *ngIf="!selectedItem.route_description" class="modal-link text-blue" (click)="setStopFromMap(marker.stop_name)">Select</a>
 						</agm-info-window>
 					</agm-marker>
 					<agm-polyline *ngIf="selectedItem.route_description">
