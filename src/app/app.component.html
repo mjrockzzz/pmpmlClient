@@ -40,7 +40,9 @@
 						<input class="form-control w-auto" type="text" name="stopName" [typeahead]="stopList" 
 						typeaheadOptionField="stop_name" [typeaheadOptionsLimit]=8 [(ngModel)]="stop">
 					</div>
-					<a (click)="openMapView1Modal()" class="modal-link text-white d-flex justify-content-center pt-8">Map View</a>
+					<a (click)="openMapView1Modal()" class="modal-link text-white d-flex justify-content-center pt-8">
+						Map View
+					</a>
 					<div class="form-group">
 						<button class="btn btn-light w-120 bg-hover" (click)="getRoutesAtStop()">Search</button>
 					</div>
@@ -79,8 +81,7 @@
 	</div>
 </div>
 
-<div bsModal #routeDetailsModal='bs-modal' class="modal fade" tabindex="-1" role="dialog" 
-aria-labelledby="routeDetailsModal">
+<div bsModal #routeDetailsModal='bs-modal' class="modal fade" tabindex="-1" aria-labelledby="routeDetailsModal" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -113,7 +114,8 @@ aria-labelledby="routeDetailsModal">
 				<h4 *ngIf="!selectedItem.route_description" id="mapView-name-i" class="modal-title d-flex justify-content-start">
 					Bus Stops
 				</h4>
-				<a *ngIf="selectedItem.route_description" (click)="openRouteDetailsModal(selectedItem)" class="modal-link d-flex justify-content-center pt-8">
+				<a *ngIf="selectedItem.route_description" (click)="openRouteDetailsModal(selectedItem)" 
+				class="modal-link d-flex justify-content-center pt-8">
 					List View
 				</a>
 				<button type="button" class="close" aria-label="Close" (click)="mapViewModal.hide()">
@@ -126,11 +128,13 @@ aria-labelledby="routeDetailsModal">
 					[iconUrl]="getIcon(marker)">
 						<agm-info-window>
 							{{marker.stop_name}}<br/>
-							<a *ngIf="!selectedItem.route_description" class="modal-link text-blue" (click)="setStopFromMap(marker.stop_name)">Select</a>
+							<a *ngIf="!selectedItem.route_description" class="modal-link text-blue" 
+							(click)="setStopFromMap(marker.stop_name)">Select</a>
 						</agm-info-window>
 					</agm-marker>
 					<agm-polyline *ngIf="selectedItem.route_description">
-						<agm-polyline-point *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude">
+						<agm-polyline-point *ngFor="let marker of markers" [latitude]="marker.latitude" 
+						[longitude]="marker.longitude">
 						</agm-polyline-point>
 					</agm-polyline>
 				</agm-map>
