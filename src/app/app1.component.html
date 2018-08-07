@@ -32,7 +32,7 @@
 					typeaheadOptionField="stop_name" [typeaheadOptionsLimit]=8 [(ngModel)]="to">
 				</div>
 				<div class="form-group ml-auto mr-2">
-					<button class="btn btn-light w-120 bg-hover" (click)="getFromToRoutes()">Search</button>
+					<button class="btn btn-light bg-hover" (click)="getFromToRoutes()">Search</button>
 				</div>
 			</div>
 			<div *ngIf="selectedButton==2" class="row w-100 justify-content-around search-bar">
@@ -45,7 +45,7 @@
 					Map View
 				</a>
 				<div class="form-group">
-					<button class="btn btn-light w-120 bg-hover" (click)="getRoutesAtStop()">Search</button>
+					<button class="btn btn-light bg-hover" (click)="getRoutesAtStop()">Search</button>
 				</div>
 			</div>
 			<div *ngIf="selectedButton==3" class="row w-100 justify-content-around search-bar">
@@ -55,7 +55,7 @@
 					[typeaheadOptionsLimit]=8 [(ngModel)]="route">
 				</div>
 				<div class="form-group">
-					<button class="btn btn-light w-120 bg-hover" (click)="getRouteDetails()">Search</button>
+					<button class="btn btn-light bg-hover" (click)="getRouteDetails()">Search</button>
 				</div>
 			</div>
 		</div>
