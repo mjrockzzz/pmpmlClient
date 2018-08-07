@@ -51,9 +51,9 @@
     border-radius: 40px;
 }
 
-.w-120 {
-    /* width: 120px !important; */
-}
+/* .w-120 {
+    width: 120px !important;
+} */
 
 .bg-hover:hover  {
     background-color: #ffffffff;
