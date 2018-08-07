@@ -1,0 +1,63 @@
+<div class="row mx-3">
+	<div class="col-12 height-100"></div>
+	<div class="row mx-0 col-12 top-nav justify-content-center">
+		<div class="col-12 col-md-9 height-top">
+			<div class="row p-custom justify-content-between">
+				<button class="col-2 col-c-12 button-height round-icon" [class.selected]="selectedButton==1" (click)="changeButton(1)">
+					Search Buses
+				</button>
+				<button class="col-2 col-c-12 button-height round-icon" [class.selected]="selectedButton==2" (click)="changeButton(2)">
+					Search By Stop
+				</button>
+				<button class="col-2 col-c-12 button-height round-icon" [class.selected]="selectedButton==3" (click)="changeButton(3)">
+					Search By Route
+				</button>
+				<button class="col-2 col-c-12 button-height round-icon" [class.selected]="selectedButton==4" (click)="changeButton(4)" 
+				[disabled]="true">
+					Coming Soon...
+				</button>
+			</div>
+		</div>
+		<div class="col-12 col-c-6 height-bottom">
+			<div *ngIf="selectedButton==1" class="row w-100 search-bar">
+				<div class="row form-group ml-2">
+					<label class="mt-1 mr-2 text-white" for="sourceStop"><h6>Source Stop</h6></label>
+					<input class="form-control w-auto" type="text" name="sourceStop" [typeahead]="stopList" 
+					typeaheadOptionField="stop_name" [typeaheadOptionsLimit]=8 [(ngModel)]="from">
+				</div>
+				<button class="btn ml-4 mb-3" (click)="swap()"><i class="fas fa-exchange-alt"></i></button>
+				<div class="row form-group ml-4">
+					<label class="mt-1 mr-2 text-white" for="destinationStop"><h6>Destination Stop</h6></label>
+					<input class="form-control w-auto" type="text" name="destinationStop" [typeahead]="stopList" 
+					typeaheadOptionField="stop_name" [typeaheadOptionsLimit]=8 [(ngModel)]="to">
+				</div>
+				<div class="form-group ml-auto mr-2">
+					<button class="btn btn-light w-120 bg-hover" (click)="getFromToRoutes()">Search</button>
+				</div>
+			</div>
+			<div *ngIf="selectedButton==2" class="row w-100 justify-content-around search-bar">
+				<div class="row form-group">
+					<label class="mt-1 mr-2 text-white" for="stopName"><h6>Stop Name</h6></label>
+					<input class="form-control w-auto" type="text" name="stopName" [typeahead]="stopList" 
+					typeaheadOptionField="stop_name" [typeaheadOptionsLimit]=8 [(ngModel)]="stop">
+				</div>
+				<a (click)="openMapView1Modal()" class="modal-link text-white d-flex justify-content-center pt-8">
+					Map View
+				</a>
+				<div class="form-group">
+					<button class="btn btn-light w-120 bg-hover" (click)="getRoutesAtStop()">Search</button>
+				</div>
+			</div>
+			<div *ngIf="selectedButton==3" class="row w-100 justify-content-around search-bar">
+				<div class="row form-group">
+					<label class="mt-1 mr-2 text-white" for="route"><h6>Route Number</h6></label>
+					<input class="form-control w-auto" type="text" name="route" [typeahead]="routeNoList" 
+					[typeaheadOptionsLimit]=8 [(ngModel)]="route">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-light w-120 bg-hover" (click)="getRouteDetails()">Search</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -7,7 +7,7 @@ import { TypeaheadModule, ModalModule } from 'ngx-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
-import { HomeService } from './service';
+import { HomeService, AuthService } from './service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { HomeService } from './service';
     })
   ],
   providers: [
-    HomeService
+    HomeService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,33 +12,47 @@
     position: relative;
 }
 
-.height-160 {
-    height: 160px;
+.button-height {
+    height: 11vw;
+    margin-bottom: 0.1rem;
 }
 
 .p-custom {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-    padding-left: 4.5rem !important;
-    padding-right: 4.5rem !important;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.height-160 {
+    height: 160px;
 }
 
 .round-icon {
     border: 1px solid white;
     background-color: #ffffffe0;
-    border-radius: 5rem;
+    border-radius: 9rem;
+}
+
+.height-top {
+    height: 65%;
+}
+
+.height-bottom {
+    height: 35%;
 }
 
 .search-bar {
     padding-top: 1rem;
     background-color: #000000b0;
     margin-bottom: 1rem;
+    margin-top: 0rem;
     border: 1px solid #00000000;
     border-radius: 40px;
 }
 
 .w-120 {
-    width: 120px !important;
+    /* width: 120px !important; */
 }
 
 .bg-hover:hover  {
@@ -62,7 +76,7 @@ button:hover {
 }
 
 .w-auto {
-    width: auto !important;
+    width: auto;
 }
 
 .selected {
@@ -135,3 +149,85 @@ a:hover {
 .show {
     display: block;
 } */
+
+/*Media Queries*/
+
+@media(max-width: 468px) {
+    .col-c-12 {
+        flex: 0 0 48%;
+        max-width: 48%
+    }
+    .button-height {
+        height: auto !important;
+        font-size: 0.6rem;
+    }
+}
+
+@media(max-width: 568px) {
+    .button-height {
+        font-size: 0.6rem;
+    }
+}
+
+@media(max-width: 640px) {
+    .top-nav {
+        height: 200px;
+    }
+}
+
+@media(max-width: 767px) {
+    .button-height {
+        height: 13vw !important;
+        font-size: 0.8rem;
+    }
+    .p-custom {
+        padding-top: 2rem !important;
+    }
+}
+
+@media(max-width: 986px) {
+    .height-top {
+        height: 60% !important;
+    }
+    
+    .height-bottom {
+        height: 40% !important;
+    }
+    h6 {
+        font-size: 0.8rem !important;
+    }
+    input {
+        height: 1.8rem !important;
+        width: 6rem !important;
+    }
+    button {
+        height: 1.8rem;
+        padding-top: 1px;
+    }
+}
+
+@media(min-width: 1440px) {
+    .col-c-6 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%
+    }
+}
+
+@media(min-width: 1600px) {
+    .top-nav {
+        height: 450px;
+    }
+    .button-height {
+        font-size: 1.5rem;
+    }
+}
+
+@media(min-width: 1980px) {
+    .height-top {
+        height: 70% !important;
+    }
+    
+    .height-bottom {
+        height: 30% !important;
+    }
+}

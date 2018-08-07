@@ -4,7 +4,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 
 @Component({
   	selector: 'app-root',
-  	templateUrl: './app.component.html',
+  	templateUrl: './app1.component.html',
   	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
