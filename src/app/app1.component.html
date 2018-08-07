@@ -60,4 +60,111 @@
 			</div>
 		</div>
 	</div>
+	<div *ngIf="flag==1">Search results for {{selectedFrom}} to {{selectedTo}}</div>
+	<div *ngIf="flag==2">Search results for {{selectedStop}}</div>
+	<div *ngIf="flag==3">Search results for route no. {{selectedRoute}}</div>
+	<div class="card d-flex col-md-10 mt-4 offset-md-1 card-rounded" *ngIf="list">
+		<div class="card-body">
+			<ul class="list-group">
+				<li *ngFor="let item of list; let i=index" class="list-group-item list-group-item-rounded text-center 
+				font-expand">
+					<a class="cursor-pointer" (click)="openRouteDetailsModal(item)">	
+						<strong class="row">
+							<p class="col-2 mb-0">{{item.route_no}}</p>
+							<p class="col-8 mb-0">{{item.route_description}}</p>
+							<p class="col-2 mb-0">{{item.route_direction}}</p>
+						</strong>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div bsModal #routeDetailsModal='bs-modal' class="modal fade" tabindex="-1" aria-labelledby="routeDetailsModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="routeDetails-name" class="modal-title d-flex justify-content-start">
+					{{selectedItem.route_no}} - {{selectedItem.route_description}} ({{selectedItem.stop_details.length}} stops)
+				</h4>
+				<a (click)="openMapViewModal()" class="modal-link d-flex justify-content-center pt-8">Map View</a>
+				<button type="button" class="close" aria-label="Close" (click)="routeDetailsModal.hide()">
+			  		<span aria-hidden="true">&times;</span>
+				</button>
+		  	</div>
+		  	<div class="modal-body" style="height: 700px; overflow-y: scroll;">
+				<ul class="list-group">
+					<li *ngFor="let stop of selectedItem.stop_details" class="list-group-item text-center">
+						<span [class.font-weight-bold]="isQueryStop(stop)">{{stop}}</span>
+					</li>
+				</ul>
+		  	</div>
+		</div>
+	</div>
+</div>
+
+<div bsModal #mapViewModal='bs-modal' class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mapViewModal">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 *ngIf="selectedItem.route_description" id="mapView-name" class="modal-title d-flex justify-content-start">
+					{{selectedItem.route_description}}
+				</h4>
+				<h4 *ngIf="!selectedItem.route_description" id="mapView-name-i" class="modal-title d-flex justify-content-start">
+					Bus Stops
+				</h4>
+				<a *ngIf="selectedItem.route_description" (click)="openRouteDetailsModal(selectedItem)" 
+				class="modal-link d-flex justify-content-center pt-8">
+					List View
+				</a>
+				<button type="button" class="close" aria-label="Close" (click)="mapViewModal.hide()">
+			  		<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<agm-map class="map" [latitude]=baseCoordinates[0] [longitude]=baseCoordinates[1] [zoom]=zoom>
+					<agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude" 
+					[iconUrl]="getIcon(marker)">
+						<agm-info-window>
+							{{marker.stop_name}}<br/>
+							<a *ngIf="!selectedItem.route_description" class="modal-link text-blue" 
+							(click)="setStopFromMap(marker.stop_name)">Select</a>
+						</agm-info-window>
+					</agm-marker>
+					<agm-polyline *ngIf="selectedItem.route_description">
+						<agm-polyline-point *ngFor="let marker of markers" [latitude]="marker.latitude" 
+						[longitude]="marker.longitude">
+						</agm-polyline-point>
+					</agm-polyline>
+				</agm-map>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div bsModal #mapView1Modal='bs-modal' class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mapView1Modal">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="mapView-name" class="modal-title d-flex justify-content-start">
+					Select a location to find nearby stops <p style="font-size: 14px;">(within 500 meters)</p>
+				</h4>
+				
+				<button type="button" class="close" aria-label="Close" (click)="mapView1Modal.hide()">
+			  		<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<agm-map class="map" [latitude]=currentCoordinates[0] [longitude]=currentCoordinates[1] [zoom]=zoom>
+					<agm-marker [latitude]="currentCoordinates[0]" [longitude]="currentCoordinates[1]" 
+					[markerDraggable]=true (dragEnd)="dragEvent($event)">
+						<agm-info-window>YOU</agm-info-window>
+					</agm-marker>
+				</agm-map>
+				<button class="btn btn-primary" style="position: fixed; margin: -100px 350px;"
+				(click)="viewNearby(currentCoordinates[0], currentCoordinates[1])">Nearby Stops</button>
+			</div>
+		</div>
+	</div>
 </div>
