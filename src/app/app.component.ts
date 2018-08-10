@@ -4,7 +4,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 
 @Component({
   	selector: 'app-root',
-  	templateUrl: './app1.component.html',
+  	templateUrl: './app.component.html',
   	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 	@ViewChild('mapViewModal') mapViewModal: ModalDirective;
 	@ViewChild('mapView1Modal') mapView1Modal: ModalDirective;
 
+	p:number = 1;
 	public routeNoList = [];
 	public stopList = [];
 	public route;
