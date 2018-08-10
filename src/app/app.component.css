@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: auto;
-    min-height: 800px;
+    min-height: 100vh;
 }
 
 .heading {
@@ -77,6 +77,15 @@ button {
 
 .cursor-pointer {
     cursor: pointer !important;
+}
+
+.right-block-buttons {
+    /* background: linear-gradient(to right, #b8dce8, #8bcfe6, #84d7f1b8, #8bcfe6, #b8dce8); */
+    background-color: #17dada54;
+}
+
+.right-block-form {
+    background-color: #b6ce8830;
 }
 
 pagination-controls {

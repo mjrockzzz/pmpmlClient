@@ -21,7 +21,7 @@
 				</ul>
 				<p>In Future updates, we will be adding more features. Stay Tuned...</p>
 			</div>
-			<div class="row mx-0 col-12 mt-5 justify-content-around">
+			<div class="row mx-0 col-12 mt-5 py-2 right-block-buttons justify-content-around">
 				<button class="round-button" [class.selected]="selectedButton==1" (click)="changeButton(1)">
 					Search Between Stops
 				</button>
@@ -32,7 +32,7 @@
 					Search By Route
 				</button>
 			</div>
-			<div class="col-12 mt-4 mt-sm-5">
+			<div class="col-12 mt-4 mt-sm-5 py-2 right-block-form">
 				<form *ngIf="selectedButton==1" class="px-4">
 					<div class="form-row">
 						<div class="form-group col-12 col-sm-5">
