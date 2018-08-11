@@ -174,33 +174,39 @@ export class AppComponent implements OnInit {
 		this.loading= true;
 		this.stop= null;
 		this.route= null;
-		this.list= [];
 		this.alert= false;
-		this.homeService.getFromToRoutes(this.from, this.to).subscribe(response => {
+		if(this.from!="" && this.to!="" && this.from!=null && this.to!=null) {
+			this.list= [];
+			this.homeService.getFromToRoutes(this.from, this.to).subscribe(response => {
+				this.loading= false;
+				this.flag=1;
+				this.selectedFrom= this.from;
+				this.selectedTo= this.to;
+				this.selectedStop= null;
+				var list= response;
+				var finalList= [];
+				if(list.length>0) {
+					list.forEach(item => {
+						var stopDetails= item.stop_details.split(',');
+						item.stop_details= stopDetails;
+						if(item.stop_details.includes(this.from) && item.stop_details.includes(this.to)) {
+							finalList.push(item);
+						}
+					})
+					this.list= finalList;
+				}
+				else {
+					this.alert=true;
+				}
+			},
+			error => {
+				this.loading= false;
+			})
+		}
+		else {
 			this.loading= false;
-			this.flag=1;
-			this.selectedFrom= this.from;
-			this.selectedTo= this.to;
-			this.selectedStop= null;
-			var list= response;
-			var finalList= [];
-			if(list.length>0) {
-				list.forEach(item => {
-					var stopDetails= item.stop_details.split(',');
-					item.stop_details= stopDetails;
-					if(item.stop_details.includes(this.from) && item.stop_details.includes(this.to)) {
-						finalList.push(item);
-					}
-				})
-				this.list= finalList;
-			}
-			else {
-				this.alert=true;
-			}
-		},
-		error => {
-			this.loading= false;
-		})
+			this.toastr.warning("Please enter a source and destination stop first.");
+		}
 	}
 
 	getRoutesAtStop() {
@@ -208,33 +214,39 @@ export class AppComponent implements OnInit {
 		this.from= null;
 		this.to= null;
 		this.route= null;
-		this.list= [];
 		this.alert= false;
-		this.homeService.getRoutesAtStop(this.stop).subscribe(response => {
+		if(this.stop!="" && this.stop!=null) {
+			this.list= [];
+			this.homeService.getRoutesAtStop(this.stop).subscribe(response => {
+				this.loading= false;
+				this.flag=2;
+				this.selectedStop= this.stop;
+				this.selectedFrom= null;
+				this.selectedTo= null;
+				var list= response;
+				var finalList= [];
+				if(list.length>0) {
+					list.forEach(item => {
+						var stopDetails= item.stop_details.split(',');
+						item.stop_details= stopDetails;
+						if(item.stop_details.includes(this.stop)) {
+							finalList.push(item);
+						}
+					})
+					this.list= finalList;
+				}
+				else {
+					this.alert= true;
+				}
+			},
+			error => {
+				this.loading= false;
+			})
+		}
+		else {
 			this.loading= false;
-			this.flag=2;
-			this.selectedStop= this.stop;
-			this.selectedFrom= null;
-			this.selectedTo= null;
-			var list= response;
-			var finalList= [];
-			if(list.length>0) {
-				list.forEach(item => {
-					var stopDetails= item.stop_details.split(',');
-					item.stop_details= stopDetails;
-					if(item.stop_details.includes(this.stop)) {
-						finalList.push(item);
-					}
-				})
-				this.list= finalList;
-			}
-			else {
-				this.alert= true;
-			}
-		},
-		error => {
-			this.loading= false;
-		})
+			this.toastr.warning("Please enter a stop name first.");
+		}
 	}
 
 	getRouteDetails() {
@@ -242,29 +254,35 @@ export class AppComponent implements OnInit {
 		this.from= null;
 		this.to= null;
 		this.stop= null;
-		this.list= [];
 		this.alert= false;
-		this.homeService.getRouteDetails(this.route).subscribe(response => {
+		if(this.route!="" && this.route!=null) {
+			this.list= [];
+			this.homeService.getRouteDetails(this.route.trim()).subscribe(response => {
+				this.loading= false;
+				this.flag=3;
+				this.selectedRoute= this.route;
+				this.selectedStop= null;
+				this.selectedFrom= null;
+				this.selectedTo= null;
+				var list= response;
+				if(list.length>0) {
+					list.forEach(item => {
+						var stopDetails= item.stop_details.split(',');
+						item.stop_details= stopDetails;
+					})
+					this.list= list;
+				}
+				else {
+					this.alert= true;
+				}
+			},
+			error => {
+				this.loading= false;
+			})
+		}
+		else {
 			this.loading= false;
-			this.flag=3;
-			this.selectedRoute= this.route;
-			this.selectedStop= null;
-			this.selectedFrom= null;
-			this.selectedTo= null;
-			var list= response;
-			if(list.length>0) {
-				list.forEach(item => {
-					var stopDetails= item.stop_details.split(',');
-					item.stop_details= stopDetails;
-				})
-				this.list= list;
-			}
-			else {
-				this.alert= true;
-			}
-		},
-		error => {
-			this.loading= false;
-		})
+			this.toastr.warning("Please enter a route no first.");
+		}
 	}
 }

@@ -5,12 +5,23 @@
     background-size: cover;
     height: auto;
     min-height: 100vh;
-    box-shadow: 3px 3px 8px #00000070;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.439);
     z-index: 1;
 }
 
+.pmpml-logo {
+    width: 6rem;
+}
+
+.rainbow-logo {
+    width: 6rem;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
 .header {
-    color: #1bf738;
+    color: rgb(27, 247, 56);
     font-family: 'Roboto Slab', serif;
 }
 
@@ -26,7 +37,7 @@
 }
 
 .overlay {
-    background-color: #00000070;
+    background-color: rgba(0, 0, 0, 0.439);
 }
 
 .right-block-top-info {
@@ -34,24 +45,24 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 2px 16px #00000070;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.439);
 }
 
 .round-button {
     width: 8rem;
     height: 8rem;
-    border: 1px solid #0089ff;
-    background-color: #189fff;
+    border: 1px solid rgb(0, 137, 255);
+    background-color: rgb(24, 159, 255);
     border-radius: 4rem;
-    box-shadow: 3px 3px 8px #00000070;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.439);
 }
 
 button.round-button:hover {
-    background-color: #6ec0fa;
+    background-color: rgb(110, 192, 250);
 }
 
 .selected {
-    background-color: #0667a0db;
+    background-color: rgba(6, 103, 160, 0.859);
 }
 
 .search-button {
@@ -61,7 +72,7 @@ button.round-button:hover {
 
 .map-link {
     padding-top: 5px;
-    color: #2727d1 !important;
+    color: rgb(39, 39, 209) !important;
     cursor: pointer;
     text-decoration: underline !important;
 }
@@ -77,13 +88,13 @@ button {
 .list-group-item-rounded {
     border-radius: 2rem !important;
     margin-bottom: 2px !important;
-    border-color: #00000060;
+    border-color: rgba(0, 0, 0, 0.376);
 }
 
 .card-rounded {
-    box-shadow: 4px 4px 12px #00000060;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.376);
     border-radius: 5.5rem !important;
-    border-color: #00000050;
+    border-color: rgba(0, 0, 0, 0.314);
 }
 
 .font-expand {
@@ -97,13 +108,13 @@ button {
 
 .right-block-buttons {
     /* background: linear-gradient(to right, #b8dce8, #8bcfe6, #84d7f1b8, #8bcfe6, #b8dce8); */
-    background-color: #17dada54;
-    box-shadow: 0px 2px 16px #00000070;
+    background-color: rgba(23, 218, 218, 0.329);
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.439);
 }
 
 .right-block-form {
-    background-color: #b6ce8830;
-    box-shadow: 0px 2px 8px #00000070;
+    background-color: rgba(182, 206, 136, 0.188);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.439);
 }
 
 pagination-controls {
@@ -140,6 +151,12 @@ pagination-controls {
     .left-block {
         height: 100px !important;
         min-height: 100px !important;
+    }
+    .pmpml-logo {
+        width: 4rem;
+    }
+    .rainbow-logo {
+        width: 4.5rem;
     }
 }
 

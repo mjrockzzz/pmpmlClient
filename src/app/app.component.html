@@ -3,8 +3,10 @@
 	<div class="row">
 		<div class="col-12 col-md-4 p-0 left-block">
 			<div class="h-100 d-flex align-items-center justify-content-center overlay">
-				<div class="w-75 mt-2 header text-center">
-					<p class="heading">PMPML</p>
+				<img class="rainbow-logo" src="../assets/rainbow_logo.png" alt="Rainbow">
+				<div class="w-75 mt-3 header text-center">
+					<!-- <p class="heading">PMPML</p> -->
+					<img class="pmpml-logo rounded-circle" src="../assets/logo.png" alt="PMPML">
 					<p class="sub-heading">Unofficial</p>
 				</div>
 			</div>
@@ -34,7 +36,7 @@
 				</button>
 			</div>
 			<div class="col-12 mt-4 mt-sm-5 py-2 right-block-form">
-				<form *ngIf="selectedButton==1" class="px-4">
+				<form *ngIf="selectedButton==1" class="px-4" autocomplete="off">
 					<div class="form-row">
 						<div class="form-group col-12 col-sm-5">
 							<label for="sourceStop">Source Stop</label>
@@ -50,7 +52,7 @@
 					</div>
 					<button class="btn btn-primary btn-lg d-flex m-auto search-button" (click)="getFromToRoutes()">Search</button>
 				</form>
-				<form *ngIf="selectedButton==2" class="px-4">
+				<form *ngIf="selectedButton==2" class="px-4" autocomplete="off">
 					<div class="form-row">
 						<div class="form-group col-12 col-sm-8">
 							<label for="stopName">Stop Name</label>
@@ -61,7 +63,7 @@
 						<button class="btn btn-primary col-6 col-sm-2 my-sm-6" (click)="getRoutesAtStop()">Search</button>
 					</div>
 				</form>
-				<form *ngIf="selectedButton==3" class="px-4">
+				<form *ngIf="selectedButton==3" class="px-4" autocomplete="off">
 					<div class="form-row">
 						<div class="form-group col-12 col-sm-8">
 							<label for="route">Route Number</label>

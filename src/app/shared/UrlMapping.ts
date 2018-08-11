@@ -3,7 +3,7 @@ export class UrlMapping {
     public static BaseUrl = "https://pmpmlserver.herokuapp.com/";
 
     public static GetRouteDetailsUrl(route) {
-        return "getRouteDetails?route="+route.trim();
+        return "getRouteDetails?route="+route;
     }
 
     public static GetFromToRoutesUrl(from, to) {
