@@ -1,6 +1,6 @@
 .left-block {
     background: url('../assets/1.jpg');
-    background-position: right;
+    background-position: 90%;
     background-repeat: no-repeat;
     background-size: cover;
     height: auto;
