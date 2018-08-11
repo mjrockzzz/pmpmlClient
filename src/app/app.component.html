@@ -1,3 +1,4 @@
+<ngx-loading [show]="loading"></ngx-loading>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 col-md-4 p-0 left-block">
@@ -71,7 +72,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-12 mt-4">
+			<div class="col-12 my-4">
 				<h5 *ngIf="flag==1">Search results for {{selectedFrom}} to {{selectedTo}}</h5>
 				<h5 *ngIf="flag==2">Search results for {{selectedStop}}</h5>
 				<h5 *ngIf="flag==3">Search results for route no. {{selectedRoute}}</h5>
@@ -89,6 +90,9 @@
 							</li>
 							<pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
 						</ul>
+						<div *ngIf="alert" class="alert alert-primary list-group-item-rounded text-center" role="alert">
+							No Buses or Routes found.
+						</div>
 					</div>
 				</div>
 			</div>
