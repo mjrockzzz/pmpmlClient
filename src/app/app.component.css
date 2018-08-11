@@ -117,6 +117,32 @@ button {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.439);
 }
 
+.modal-link {
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
+.modal-header .close {
+    margin: -15px -15px -15px 0px;
+}
+
+.modal-xl {
+    max-width: 850px !important;
+    margin: 75px auto !important;
+}
+
+.map {
+    height: 500px;
+}
+
+.text-blue {
+    color: blue !important;
+}
+
+.pt-8 {
+    padding-top: 8px !important;
+}
+
 pagination-controls {
     text-align: right;
     margin-top: 8px;
@@ -164,32 +190,4 @@ pagination-controls {
     .map-link {
         padding-top: 0px !important;
     }
-}
-
-/*Other to change*/
-
-.modal-header .close {
-    margin: -15px -15px -15px 0px;
-}
-
-.modal-xl {
-    max-width: 850px !important;
-    margin: 75px auto !important;
-}
-
-.map {
-    height: 500px;
-}
-
-.modal-link {
-    cursor: pointer;
-    text-decoration: underline !important;
-}
-
-.text-blue {
-    color: blue !important;
-}
-
-.pt-8 {
-    padding-top: 8px !important;
 }
