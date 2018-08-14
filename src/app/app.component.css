@@ -46,6 +46,7 @@
     background-position: center;
     background-size: cover;
     box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.439);
+    font-weight: 500;
 }
 
 .round-button {
@@ -143,6 +144,11 @@ button {
     padding-top: 8px !important;
 }
 
+.nearby-button {
+    position: fixed;
+    margin: -100px 40%;
+}
+
 pagination-controls {
     text-align: right;
     margin-top: 8px;
@@ -183,7 +189,11 @@ pagination-controls {
     }
     .rainbow-logo {
         width: 4.5rem;
+    } 
+    .nearby-button {
+        margin: -100px 36% !important;
     }
+
 }
 
 @media(min-width: 768px) and (max-width: 828px) {
